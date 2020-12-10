@@ -1,0 +1,3 @@
+snek
+
+snek --type fancy
