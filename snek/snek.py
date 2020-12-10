@@ -1,3 +1,6 @@
+
+#   LINK: https://amir.rachum.com/blog/2017/07/28/python-entry-points/
+
 """Print an ASCII Snek.
 
 Usage:
@@ -31,10 +34,7 @@ fancy_snek = """\
 """
 
 def get_sneks():
-    sneks = {
-        'normal': normal_snek,
-        'fancy': fancy_snek,
-    }
+    sneks = {}
     for entry_point in pkg_resources.iter_entry_points('snek_types'):
         sneks[entry_point.name] = entry_point.load()
     return sneks
