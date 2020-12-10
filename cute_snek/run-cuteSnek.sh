@@ -1,1 +1,0 @@
-snek --type=cute

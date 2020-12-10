@@ -1,3 +1,0 @@
-snek
-
-snek --type fancy
