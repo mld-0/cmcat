@@ -1,0 +1,1 @@
+Extends 'snek', providing option '--type=cute', which produces a cute snek.
