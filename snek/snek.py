@@ -8,6 +8,7 @@ Usage:
     
 """
 import docopt
+import argopt, shtab
 import pkg_resources
 
 normal_snek = """\
@@ -41,9 +42,15 @@ def get_sneks():
 
 
 def main():
-    args = docopt.docopt(__doc__)
-    snek_type = args['--type'] or 'normal'
+    #args = docopt.docopt(__doc__)
+    #snek_type = args['--type'] or 'normal'
+    args = parser.parse_args()
+    snek_type = args.type or 'normal'
     print(get_sneks()[snek_type])
+
+parser = argopt.argopt(__doc__)
+#shtab.add_argument_to(parser, ["-s", "--print-completion"])
+#print(shtab.complete(parser, shell="zsh"))
     
 if __name__ == '__main__':
     main()
