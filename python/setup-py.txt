@@ -5,6 +5,15 @@ Difference between:
 	python setup.py install
 	python setup.py develop
 
+But wait… instead of setup.py, use pip
+	pip install . 		replaces 	python setup.py install
+	pip install -e .	replaces 	python setup.py develop
+It is highly recommended to use pip instead of setup.py. pip install . instead of setup.py install and pip install -e . instead of setup.py develop.
+Because setup.py will do the wrong things for dependencies such as:
+Setuptools uses easy_install to fulfill these dependencies and it skip pip’s hash-checking
+easy_install does not exclude pre and post release versions as pip does.
+easy_install make the package hard to uninstall things or may not do clean job. Remember the spoiler alert? if you install with pip install -e . and run pip uninstall mypackage then find . -name 'myproject.*' won’t find anything.
+
 python setup.py install is used to install (typically third party) packages that you're not going to develop/modify/debug yourself.
 For your own stuff, you want to first install your package and then be able to frequently edit the code without having to re-install the package every time — and that is exactly what python setup.py develop does: it installs the package (typically just a source folder) in a way that allows you to conveniently edit your code after it’s installed to the (virtual) environment, and have the changes take effect immediately.
 Note that it is highly recommended to use pip install . (install) and pip install -e . (developer install) to install packages, as invoking setup.py directly will do the wrong things for many dependencies, such as pull prereleases and incompatible package versions, or make the package hard to uninstall with pip.
